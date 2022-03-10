@@ -146,9 +146,6 @@ const cardMaker = function makeCard(object) {
 	return card;
 };
 
-const noLambda = document.querySelector("img");
-noLambda.src =
-	"https://cdn.theorg.com/c679e681-b714-40b9-86f3-bb6af691fac6_medium.png";
 /*
   List of LS Instructors Github username's:
     https://api.github.com/users/tetondan
