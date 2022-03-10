@@ -1,15 +1,22 @@
+import axios from "axios";
 /*
   STEP 1: using axios, send a GET request to the following URL
     (replacing the placeholder with your Github name):
     https://api.github.com/users/<your name>
 */
-
+axios
+	.get("https://api.github.com/users/JamesFincher")
+	.then((res) => console.log(res.data))
+	.catch((err) => console.log(err))
+	.finally(() => console.log("Seems to work...."));
 /*
   STEP 2: Inspect and study the data coming back, this is YOUR
     github info! You will need to understand the structure of this
     data in order to use it to build your component function
 
     Skip to STEP 3 (line 34).
+
+   
 */
 
 /*
@@ -27,9 +34,43 @@
     Using that array, iterate over it, requesting data for each user, creating a new card for each
     user, and adding that card to the DOM.
 */
+function cardMaker({}) {
+	const followersArray = [];
+	const card = document.createElement("div");
+	const img = document.createElement("img");
+	const cardInfo = document.createElement("div");
+	const name = document.createElement("h3");
+	const username = document.createElement("p");
+	const location = document.createElement("p");
+	const profile = document.createElement("p");
+	const linkTo = document.createElement("a");
+	const followers = document.createElement("p");
+	const following = document.createElement("p");
+	const bio = document.createElement("p");
 
-const followersArray = [];
+	card.appendChild(img);
+	card.classList.add("card");
 
+	card.appendChild(cardInfo);
+	cardInfo.classList.add("card-info");
+
+	cardInfo.appendChild(name);
+	name.classList.add("name");
+
+	cardInfo.appendChild(username);
+	username.classList.add("username");
+
+	cardInfo.appendChild(location);
+	cardInfo.appendChild(profile);
+	cardInfo.appendChild(linkTo);
+	cardInfo.appendChild(followers);
+	cardInfo.appendChild(following);
+	cardInfo.appendChild(bio);
+
+	return card;
+}
+
+console.log(cardMaker({}));
 /*
   STEP 3: Create a function that accepts a single object as its only argument.
     Using DOM methods and properties, create and return the following markup:
